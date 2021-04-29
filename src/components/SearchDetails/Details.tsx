@@ -5,21 +5,22 @@ import styles from "./Details.module.css";
 
 export const Details = () => {
 	const repos: any = useSelector((state: RootState) => state.search);
-	console.log(repos, "repos");
+	// console.log(repos, "repos");
 	const [query, setQuery] = useState("");
 	const [filteredRepos, setFilteredRepos] = useState([]);
 	useEffect(() => {
-		if (repos.length > 0) {
+		if (repos.length > 0 || !query) {
 			setFilteredRepos(repos);
 		}
-	}, [repos]);
+		searchHandler();
+	}, [repos, query]);
 	const searchHandler = () => {
 		if (query) {
 			const filtered: any = repos.filter((item: any) =>
 				item.owner.login.includes(query)
 			);
 			setFilteredRepos(filtered);
-			console.log(filteredRepos, "filtered");
+			// console.log(filteredRepos, "filtered");
 		}
 	};
 	return (
@@ -32,9 +33,6 @@ export const Details = () => {
 					value={query}
 					onChange={(e) => setQuery(e.target.value)}
 				/>
-				<button className={styles.searchButton} onClick={searchHandler}>
-					Search
-				</button>
 			</div>
 			<table className={styles.tableContainer}>
 				<thead>

@@ -18,7 +18,7 @@ export const getForkedRepos = (query: string) => async (
 			}
 		);
 		const res = await result.json();
-		console.log(res, "result");
+		// console.log(res, "result");
 		if (res) {
 			dispatch({ type: GET_SEARCH, payload: res });
 		}
