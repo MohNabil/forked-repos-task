@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { RootState } from "../../store";
 import styles from "./Details.module.css";
 
@@ -25,6 +26,11 @@ export const Details = () => {
 	};
 	return (
 		<div className={styles.detailsContainer}>
+			<div>
+				<Link to="/" className={styles.backLink}>
+					Back to Main Page
+				</Link>
+			</div>
 			<div className={styles.searchContainer}>
 				<input
 					type="text"
