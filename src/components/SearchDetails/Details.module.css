@@ -50,3 +50,20 @@ th {
 	margin-left: 10px;
 	width: 10%;
 }
+
+.addButton {
+	background-color: #282c34;
+	color: white;
+	border-radius: 10px;
+	margin-left: 10px;
+	padding: 0.5em;
+	cursor: pointer;
+}
+
+.emptyRepos {
+	background-color: #282c34;
+	color: white;
+	padding: 1em;
+	text-align: center;
+	border-radius: 10px;
+}

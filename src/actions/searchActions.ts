@@ -6,8 +6,15 @@ import { RootState } from "../store";
 export const getForkedRepos = (query: string) => async (
 	dispatch: ThunkDispatch<RootState, void, Action>
 ) => {
-	const owner = query.split("/")[0];
-	const repo = query.split("/")[1];
+	let owner, repo;
+	if (query.includes("/")) {
+		owner = query.split("/")[0];
+		repo = query.split("/")[1];
+	}
+	if (query.includes("/:")) {
+		owner = query.split("/:")[0];
+		repo = query.split("/:")[1];
+	}
 	try {
 		const result = await fetch(
 			`https://api.github.com/repos/${owner}/${repo}/forks`,

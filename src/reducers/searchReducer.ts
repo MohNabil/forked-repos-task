@@ -7,7 +7,7 @@ type searchAction = {
 const searchReducer = (state = [], action: searchAction) => {
 	switch (action.type) {
 		case GET_SEARCH:
-			return [...state, ...action.payload];
+			return [...action.payload];
 
 		default:
 			return state;
